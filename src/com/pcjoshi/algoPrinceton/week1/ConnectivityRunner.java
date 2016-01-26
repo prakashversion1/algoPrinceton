@@ -9,15 +9,15 @@ public class ConnectivityRunner {
     public static void main(String[] args) {
         int N = StdIn.readInt();
         QuickFind quickFind = new QuickFind(N);
-        while (!StdIn.isEmpty()){
+        while (!StdIn.isEmpty()) {
             int a = StdIn.readInt();
             int b = StdIn.readInt();
-            if (!quickFind.connected(a,b)){
-                quickFind.union(a,b);
-                System.out.println("Union of : " + a +" - " + b);
+            if (!quickFind.connected(a, b)) {
+                quickFind.union(a, b);
+                System.out.println("Union of : " + a + " - " + b);
             }
         }
-        System.out.println(quickFind.count()+" connected components.");
+        System.out.println(quickFind.count() + " connected components.");
 
     }
 }

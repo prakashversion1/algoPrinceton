@@ -5,30 +5,33 @@ package com.pcjoshi.algoPrinceton.week1;
  */
 public class QuickFind {
     private int count;
-    private int [] id ;
-    public QuickFind(int N){
+    private int[] id;
+
+    public QuickFind(int N) {
+        count = N;
         id = new int[N];
-        for (int i=0;i<N;i++){
+        for (int i = 0; i < N; i++) {
             id[i] = i;
         }
     }
 
-    public boolean connected(int a,int b){
+    public boolean connected(int a, int b) {
         return id[a] == id[b];
     }
+
     //(Connect 4 and 3 mens change  )
-    public void union(int a,int b){
+    public void union(int a, int b) {
         int p = id[a];
         int q = id[b];
-        for (int i=0;i<id.length;i++){
-            if (id[i] == p){
+        for (int i = 0; i < id.length; i++) {
+            if (id[i] == p) {
                 id[i] = q;
             }
         }
-
+        count--;
     }
 
-    public int count(){
-        return 0;
+    public int count() {
+        return count;
     }
 }
