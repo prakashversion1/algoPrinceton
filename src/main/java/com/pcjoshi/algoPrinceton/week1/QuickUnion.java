@@ -27,13 +27,18 @@ public class QuickUnion {
         return root(a) == root(b);
     }
 
-    public int root(int x) {
-        if (id[x] == x)
-            return x;
-        else
-            return root(id[x]);
-    }
+    // this method throws stackoverflow exception
+//    public int root(int x) {
+//        if (id[x] == x)
+//            return x;
+//        else
+//            return root(id[x]);
+//    }
 
+    public int root(int x){
+        while (id[x]!=x) x = id[x];
+        return  x ;
+    }
 
     public int count() {
         return count;
