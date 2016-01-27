@@ -2,14 +2,14 @@ package com.pcjoshi.algoPrinceton.week1;
 
 import java.io.FileInputStream;
 
-import edu.princeton.cs.introcs.StdIn;
+import edu.princeton.cs.algs4.StdIn;
 
 /**
  * Created by prakash on 1/26/16 for algoPrinceton Please contact prakashjoshiversion1@gmail.com
  */
 public class ConnectivityRunner {
     public static void main(String[] args) {
-        String inputPath = "/media/prakash/New Volume/courses/Algorithms/Week 1/tinyUF.txt";
+        String inputPath = "/home/pcjoshi/Documents/dummyProjects/princetonData/week1/tinyUF.txt";
         try {
             System.setIn(new FileInputStream(inputPath));
             int N = StdIn.readInt();
