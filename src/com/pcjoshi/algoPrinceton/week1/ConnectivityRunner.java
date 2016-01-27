@@ -1,5 +1,7 @@
 package com.pcjoshi.algoPrinceton.week1;
 
+import java.io.FileInputStream;
+
 import edu.princeton.cs.introcs.StdIn;
 
 /**
@@ -7,17 +9,40 @@ import edu.princeton.cs.introcs.StdIn;
  */
 public class ConnectivityRunner {
     public static void main(String[] args) {
-        int N = StdIn.readInt();
+        String inputPath = "/media/prakash/New Volume/courses/Algorithms/Week 1/tinyUF.txt";
+        try {
+            System.setIn(new FileInputStream(inputPath));
+            int N = StdIn.readInt();
+            quickUnion(N);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    public static void quickFind(int N) {
         QuickFind quickFind = new QuickFind(N);
         while (!StdIn.isEmpty()) {
             int a = StdIn.readInt();
             int b = StdIn.readInt();
             if (!quickFind.connected(a, b)) {
                 quickFind.union(a, b);
-                System.out.println("Union of : " + a + " - " + b);
+                System.out.println("Union of : " + a + " " + b);
             }
         }
         System.out.println(quickFind.count() + " connected components.");
+    }
 
+    public static void quickUnion(int N) {
+        QuickUnion quickUnion = new QuickUnion(N);
+        while (!StdIn.isEmpty()) {
+            int a = StdIn.readInt();
+            int b = StdIn.readInt();
+            if (!quickUnion.connected(a, b)) {
+                quickUnion.union(a, b);
+                System.out.println("Union of : " + a + " " + b);
+            }
+        }
+        System.out.println(quickUnion.count() + " connected components.");
     }
 }
