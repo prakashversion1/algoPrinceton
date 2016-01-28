@@ -10,13 +10,13 @@ import edu.princeton.cs.algs4.Stopwatch;
  */
 public class ConnectivityRunner {
     public static void main(String[] args) {
-        String inputPath = "/home/pcjoshi/Documents/dummyProjects/princetonData/week1/tinyUF.txt";
+        String inputPath = "/home/prakash/Documents/alogrPrincetonData/week1/largeUF.txt";
         try {
             System.setIn(new FileInputStream(inputPath));
             int N = StdIn.readInt();
             Stopwatch timer = new Stopwatch();
-            quickFind(N);
-            System.out.println("Time eclapsed is : " + timer.elapsedTime()*60 +" seconds");
+            weightedUnion(N);
+            System.out.println("Time eclapsed is : " + timer.elapsedTime() +" seconds");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -47,5 +47,18 @@ public class ConnectivityRunner {
             }
         }
         System.out.println(quickUnion.count() + " connected components.");
+    }
+
+    public static void weightedUnion(int N) {
+        WeightedUnion weightedUnion = new WeightedUnion(N);
+        while (!StdIn.isEmpty()) {
+            int a = StdIn.readInt();
+            int b = StdIn.readInt();
+            if (!weightedUnion.connected(a, b)) {
+                weightedUnion.union(a, b);
+//                System.out.println("Union of : " + a + " " + b);
+            }
+        }
+        System.out.println(weightedUnion.count() + " connected components.");
     }
 }
